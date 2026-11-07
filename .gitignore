@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# API keys and secrets
+.env
+.env.*
+!.env.example
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+*-wal
+*-shm
+
+# Resume datasets and candidate files
+data/
+uploads/
+*.pdf
+
+# Temporary files
+*.log
+.DS_Store
