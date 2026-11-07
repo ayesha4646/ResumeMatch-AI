@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Interview | ResumeMatch AI</title>
+
+    <link rel="stylesheet" href="/css/candidate_interview.css">
+    <script src="/js/candidate_interview.js" defer></script>
+</head>
+
+<body
+    data-vacancy-token="{{ vacancy_token }}"
+    data-application-token="{{ application_token }}"
+    data-job-title="{{ job_title }}"
+>
+    {% set vacancies_url = ('/jobs/' ~ hr_public_token) if hr_public_token else ('/careers/' ~ vacancy_token) %}
+
+    <!-- TOP NAVIGATION -->
+    <nav class="page-nav">
+
+        <a href="{{ vacancies_url }}" class="back-btn">
+            <span>← Back to Vacancies</span>
+        </a>
+
+        <div class="nav-brand">ResumeMatch AI</div>
+
+    </nav>
+
+    <!-- MAIN INTERVIEW PAGE -->
+    <main class="interview-page">
+
+        <section class="interview-card">
+
+            <!-- WELCOME SCREEN -->
+            <section id="welcomeScreen" class="screen welcome-screen">
+
+                <div class="welcome-content">
+
+                    <div class="welcome-eyebrow">AI INTERVIEW</div>
+
+                    <h1>Let's get to know you.</h1>
+
+                    <p class="job-title">{{ job_title }}</p>
+
+                    <p class="welcome-description">
+                        Answer a few questions about your experience,
+                        strengths, projects, and approach. Take your
+                        time and respond in your own words.
+                    </p>
+
+                    <div class="welcome-details">
+
+                        <div class="welcome-detail">
+                            <div class="detail-icon">01</div>
+                            <div class="detail-text">
+                                <strong>Core interview questions</strong>
+                                <span>Share your background and experience.</span>
+                            </div>
+                        </div>
+
+                        <div class="welcome-detail">
+                            <div class="detail-icon">02</div>
+                            <div class="detail-text">
+                                <strong>One question at a time</strong>
+                                <span>Focus on each question individually.</span>
+                            </div>
+                        </div>
+
+                        <div class="welcome-detail">
+                            <div class="detail-icon">03</div>
+                            <div class="detail-text">
+                                <strong>Answer naturally</strong>
+                                <span>Use your own words and real examples.</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <p class="question-count-note">
+                        Five interview questions, plus a couple of quick
+                        checks if the role needs them · Take your time
+                    </p>
+
+                    <button
+                        id="startInterviewButton"
+                        class="primary-button"
+                        type="button"
+                    >
+                        <span>Start Interview</span>
+                        <span class="button-arrow">→</span>
+                    </button>
+
+                    <p id="startError" class="inline-error" role="alert"></p>
+
+                </div>
+
+            </section>
+
+            <!-- INTERVIEW QUESTION SCREEN -->
+            <section
+                id="interviewScreen"
+                class="screen interview-screen hidden"
+            >
+
+                <div class="question-container">
+
+                    <div class="question-header">
+
+                        <div class="question-meta">
+                            <span id="questionType" class="question-type">
+                                QUESTION
+                            </span>
+
+                            <span id="progressCount" class="progress-count">
+                                1 / 5
+                            </span>
+                        </div>
+
+                        <div class="progress-track">
+                            <div id="progressFill" class="progress-fill"></div>
+                        </div>
+
+                    </div>
+
+                    <h2 id="questionText" class="question-text">
+                        Question will appear here.
+                    </h2>
+
+                    <div class="answer-area">
+
+                        <label for="answerInput" class="answer-label">
+                            Your answer
+                        </label>
+
+                        <div class="answer-wrapper">
+
+                            <textarea
+                                id="answerInput"
+                                class="answer-input"
+                                rows="4"
+                                maxlength="1500"
+                                placeholder="Type your answer here..."
+                                autocomplete="off"
+                            ></textarea>
+
+                            <div id="characterCount" class="character-count">
+                                0 / 1500
+                            </div>
+
+                        </div>
+
+                        <p id="answerError" class="inline-error" role="alert"></p>
+
+                    </div>
+
+                    <div class="question-actions">
+
+                        <span id="actionHint" class="action-hint">
+                            Your response is saved when you continue.
+                        </span>
+
+                        <button
+                            id="nextButton"
+                            class="primary-button next-button"
+                            type="button"
+                            disabled
+                        >
+                            <span>Next Question</span>
+                            <span class="button-arrow">→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- WAITING SCREEN -->
+            <section
+                id="waitingScreen"
+                class="screen waiting-screen hidden"
+            >
+
+                <div class="status-content">
+
+                    <div id="waitingOrbit" class="loading-orbit">
+                        <div class="loading-dot"></div>
+                    </div>
+
+                    <div id="waitingEyebrow" class="status-eyebrow">
+                        PLEASE WAIT
+                    </div>
+
+                    <h2 id="waitingTitle">One moment…</h2>
+
+                    <p id="waitingText">Please wait.</p>
+
+                    <button
+                        id="waitingRetryButton"
+                        class="primary-button hidden"
+                        type="button"
+                    >
+                        <span>Try again</span>
+                        <span class="button-arrow">→</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- VERIFICATION INTRO SCREEN -->
+            <section
+                id="verificationIntro"
+                class="screen verification-screen hidden"
+            >
+
+                <div class="status-content">
+
+                    <div class="status-icon">✓</div>
+
+                    <div class="status-eyebrow">ALMOST THERE</div>
+
+                    <h2>Let's verify your details.</h2>
+
+                    <p>
+                        Please answer a few short questions about
+                        your education and relevant experience.
+                    </p>
+
+                    <button
+                        id="startVerificationButton"
+                        class="primary-button"
+                        type="button"
+                    >
+                        <span>Continue</span>
+                        <span class="button-arrow">→</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- COMPLETION SCREEN -->
+            <section
+                id="completionScreen"
+                class="screen completion-screen hidden"
+            >
+
+                <div class="status-content">
+
+                    <div class="status-icon completion-icon">✓</div>
+
+                    <div class="status-eyebrow">INTERVIEW COMPLETED</div>
+
+                    <h2>Thank you for your time.</h2>
+
+                    <p>
+                        Your interview responses have been submitted.
+                        You can now return to the vacancies page.
+                    </p>
+
+                    <a href="{{ vacancies_url }}" class="primary-button">
+                        <span>Back to Vacancies</span>
+                        <span class="button-arrow">→</span>
+                    </a>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

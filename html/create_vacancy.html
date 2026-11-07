@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Create Vacancy | ResumeMatch AI</title>
+
+    <!-- SHARED SIDEBAR -->
+    <link
+        rel="stylesheet"
+        href="/css/sidebar.css"
+    >
+
+    <!-- VACANCY PAGE STYLES -->
+    <link
+        rel="stylesheet"
+        href="/css/vacancies.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           CREATE VACANCY PAGE
+        ====================================================== */
+
+        .create-page {
+            max-width: 1050px;
+        }
+
+
+        /* =====================================================
+           BACK BUTTON
+        ====================================================== */
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            height: 40px;
+            padding: 0 14px;
+
+            margin-bottom: 22px;
+
+            color: #ffffff;
+
+            background:
+                rgba(0, 99, 221, 0.05);
+
+            border:
+                1px solid rgba(96, 165, 250, 0.13);
+
+            border-radius: 9px;
+
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            transition:
+                color 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .back-link:hover {
+            color: #dce7f6;
+
+            background:
+                rgba(96, 165, 250, 0.09);
+
+            border-color:
+                rgba(96, 165, 250, 0.20);
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        /* =====================================================
+           FORM CARD
+        ====================================================== */
+
+        .form-card {
+            padding: 30px;
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(11, 29, 62, 0.84),
+                    rgba(5, 17, 42, 0.90)
+                );
+
+            border:
+                1px solid rgba(96, 165, 250, 0.13);
+
+            box-shadow:
+                0 15px 50px rgba(0, 0, 0, 0.16);
+        }
+
+
+        .form-intro {
+            margin-bottom: 28px;
+        }
+
+
+        .form-intro h2 {
+            font-size: 18px;
+            color: #eaf2fc;
+            margin-bottom: 7px;
+        }
+
+
+        .form-intro p {
+            color: #7185a8;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           FORM GRID
+        ====================================================== */
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 22px 20px;
+        }
+
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+
+        .form-label {
+            color: #b9c8dd;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+
+        .required {
+            color: #60a5fa;
+        }
+
+
+        /* =====================================================
+           INPUTS
+        ====================================================== */
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+
+            border-radius: 10px;
+
+            border:
+                1px solid rgba(96, 165, 250, 0.13);
+
+            outline: none;
+
+            color: #dce7f6;
+
+            background:
+                rgba(5, 16, 39, 0.76);
+
+            font-family: inherit;
+            font-size: 13px;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        .form-input,
+        .form-select {
+            height: 45px;
+            padding: 0 13px;
+        }
+
+
+        .form-textarea {
+            min-height: 310px;
+            padding: 15px;
+
+            resize: vertical;
+
+            line-height: 1.65;
+        }
+
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: #50658a;
+        }
+
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color:
+                rgba(34, 211, 238, 0.42);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(34, 211, 238, 0.055);
+        }
+
+
+        /* =====================================================
+           SELECT
+        ====================================================== */
+
+        .form-select {
+            appearance: none;
+
+            background-image:
+                linear-gradient(
+                    45deg,
+                    transparent 50%,
+                    #7185a8 50%
+                ),
+                linear-gradient(
+                    135deg,
+                    #7185a8 50%,
+                    transparent 50%
+                );
+
+            background-position:
+                calc(100% - 17px) 19px,
+                calc(100% - 12px) 19px;
+
+            background-size:
+                5px 5px,
+                5px 5px;
+
+            background-repeat: no-repeat;
+        }
+
+
+        .form-select option {
+            background: #081432;
+            color: #dce7f6;
+        }
+
+
+        /* =====================================================
+           ACTIONS
+        ====================================================== */
+
+        .form-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            gap: 11px;
+
+            margin-top: 30px;
+            padding-top: 22px;
+
+            border-top:
+                1px solid rgba(96, 165, 250, 0.08);
+        }
+
+
+        .secondary-btn,
+        .primary-btn {
+            height: 44px;
+
+            padding: 0 19px;
+
+            border-radius: 10px;
+
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 650;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+        }
+
+
+        .secondary-btn {
+            color: #9eb0ca;
+
+            background:
+                rgba(96, 165, 250, 0.05);
+
+            border:
+                1px solid rgba(96, 165, 250, 0.13);
+        }
+
+
+        .secondary-btn:hover {
+            color: #dce7f6;
+
+            background:
+                rgba(96, 165, 250, 0.09);
+        }
+
+
+        .primary-btn {
+            color: #ffffff;
+
+            border:
+                1px solid rgba(147, 197, 253, 0.16);
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #2563eb,
+                    #0891b2,
+                    #7c3aed
+                );
+
+            box-shadow:
+                0 9px 25px rgba(37, 99, 235, 0.18);
+        }
+
+
+        .primary-btn:hover {
+            transform:
+                translateY(-1px);
+
+            box-shadow:
+                0 13px 31px rgba(37, 99, 235, 0.25);
+        }
+
+
+        .secondary-btn:disabled,
+        .primary-btn:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+
+        /* =====================================================
+           PROCESSING / SUCCESS / ERROR
+        ====================================================== */
+
+        .processing-note {
+            display: none;
+
+            margin-top: 18px;
+            padding: 12px 14px;
+
+            border-radius: 9px;
+
+            color: #8edcf0;
+
+            background:
+                rgba(34, 211, 238, 0.05);
+
+            border:
+                1px solid rgba(34, 211, 238, 0.10);
+
+            font-size: 11px;
+
+            line-height: 1.5;
+        }
+
+
+        .processing-note.info {
+            color: #8edcf0;
+
+            background:
+                rgba(34, 211, 238, 0.05);
+
+            border-color:
+                rgba(34, 211, 238, 0.10);
+        }
+
+
+        .processing-note.success {
+            color: #9be7c4;
+
+            background:
+                rgba(34, 197, 94, 0.055);
+
+            border-color:
+                rgba(34, 197, 94, 0.16);
+        }
+
+
+        .processing-note.error {
+            color: #f4a7a7;
+
+            background:
+                rgba(239, 68, 68, 0.055);
+
+            border-color:
+                rgba(239, 68, 68, 0.16);
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 700px) {
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .form-group.full-width {
+                grid-column: auto;
+            }
+
+
+            .form-card {
+                padding: 20px;
+            }
+
+
+            .form-actions {
+                flex-direction: column-reverse;
+                align-items: stretch;
+            }
+
+
+            .secondary-btn,
+            .primary-btn {
+                width: 100%;
+            }
+
+
+            .back-link {
+                width: fit-content;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="app-shell">
+
+
+    <!-- =====================================================
+         SHARED SIDEBAR
+    ====================================================== -->
+
+    {% include '_sidebar.html' %}
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main-content">
+
+        <div class="create-page">
+
+
+            <!-- BACK -->
+            <a
+                href="/vacancies"
+                class="back-link"
+            >
+                ← Back to Vacancies
+            </a>
+
+
+            <!-- PAGE HEADER -->
+            <header class="page-header">
+
+                <div>
+
+                    <h1>
+                        Create Vacancy
+                    </h1>
+
+                    <p>
+                        Create a new job opening and start receiving candidates.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 FORM
+            ================================================== -->
+
+            <form
+                class="form-card"
+                id="vacancyForm"
+            >
+
+                <div class="form-intro">
+
+                    <h2>
+                        Vacancy Information
+                    </h2>
+
+                    <p>
+                        Enter the vacancy information below.
+                        ResumeMatch AI will process the job description
+                        and extract the required skills, experience
+                        and education.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- JOB TITLE -->
+                    <div class="form-group full-width">
+
+                        <label
+                            class="form-label"
+                            for="jobTitle"
+                        >
+                            Job Title
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="jobTitle"
+                            class="form-input"
+                            placeholder="e.g. Graphic Designer"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- JOB DESCRIPTION -->
+                    <div class="form-group full-width">
+
+                        <label
+                            class="form-label"
+                            for="jobDescription"
+                        >
+                            Job Description
+                            <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            id="jobDescription"
+                            class="form-textarea"
+                            placeholder="Paste the complete original job description here..."
+                            required
+                        ></textarea>
+
+                      
+
+                    </div>
+
+
+                    <!-- LOCATION -->
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="location"
+                        >
+                            Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            class="form-input"
+                            placeholder="e.g. Islamabad"
+                        >
+
+                    </div>
+
+
+                    <!-- SALARY -->
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="salary"
+                        >
+                            Salary
+                        </label>
+
+                        <input
+                            type="text"
+                            id="salary"
+                            class="form-input"
+                            placeholder="e.g. PKR 60,000 - 80,000"
+                        >
+
+                    </div>
+
+
+                    <!-- EMPLOYMENT TYPE -->
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="employmentType"
+                        >
+                            Employment Type
+                        </label>
+
+                        <select
+                            id="employmentType"
+                            class="form-select"
+                        >
+
+                            <option value="Full-time">
+                                Full-time
+                            </option>
+
+                            <option value="Part-time">
+                                Part-time
+                            </option>
+
+                            <option value="Contract">
+                                Contract
+                            </option>
+
+                            <option value="Internship">
+                                Internship
+                            </option>
+
+                            <option value="Freelance">
+                                Freelance
+                            </option>
+
+                            <option value="Temporary">
+                                Temporary
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- WORK MODE -->
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="workMode"
+                        >
+                            Work Mode
+                        </label>
+
+                        <select
+                            id="workMode"
+                            class="form-select"
+                        >
+
+                            <option value="On-site">
+                                On-site
+                            </option>
+
+                            <option value="Remote">
+                                Remote
+                            </option>
+
+                            <option value="Hybrid">
+                                Hybrid
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- OPENING DATE -->
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="openingDate"
+                        >
+                            Opening Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="openingDate"
+                            class="form-input"
+                        >
+
+                    </div>
+
+
+                    <!-- END DATE -->
+                    <div class="form-group">
+
+                        <label
+                            class="form-label"
+                            for="applicationEndDate"
+                        >
+                            Application End Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="applicationEndDate"
+                            class="form-input"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- PROCESSING / STATUS -->
+                <div
+                    class="processing-note"
+                    id="processingNote"
+                    role="status"
+                    aria-live="polite"
+                >
+                    Saving vacancy...
+                </div>
+
+
+                <!-- ACTIONS -->
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        id="saveDraftBtn"
+                    >
+                        Save as Draft
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                        id="publishBtn"
+                    >
+                        Publish Vacancy
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // =========================================================
+    // ELEMENTS
+    // =========================================================
+
+    const form =
+        document.getElementById("vacancyForm");
+
+    const jobTitle =
+        document.getElementById("jobTitle");
+
+    const jobDescription =
+        document.getElementById("jobDescription");
+
+    const location =
+        document.getElementById("location");
+
+    const salary =
+        document.getElementById("salary");
+
+    const employmentType =
+        document.getElementById("employmentType");
+
+    const workMode =
+        document.getElementById("workMode");
+
+    const openingDate =
+        document.getElementById("openingDate");
+
+    const applicationEndDate =
+        document.getElementById("applicationEndDate");
+
+    const saveDraftBtn =
+        document.getElementById("saveDraftBtn");
+
+    const publishBtn =
+        document.getElementById("publishBtn");
+
+    const processingNote =
+        document.getElementById("processingNote");
+
+
+    // =========================================================
+    // EDIT MODE
+    // =========================================================
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const editId =
+        params.get("edit");
+
+    const editing =
+        Boolean(editId);
+
+    let existingStatus = "draft";
+
+
+    // =========================================================
+    // ACTIVATE VACANCIES SIDEBAR
+    // =========================================================
+
+    /*
+     * This page belongs to the Vacancies section.
+     * Remove any existing active state first, then activate
+     * the Vacancies navigation item.
+     */
+
+    document
+        .querySelectorAll(".nav-item")
+        .forEach(function (item) {
+
+            item.classList.remove("active");
+
+        });
+
+
+    const vacanciesNav =
+        document.querySelector(
+            '.nav-item[href="/vacancies"]'
+        );
+
+
+    if (vacanciesNav) {
+
+        vacanciesNav.classList.add("active");
+
+    }
+
+
+    // =========================================================
+    // DATE SETUP
+    // =========================================================
+
+    const now =
+        new Date();
+
+
+    const today =
+        [
+            now.getFullYear(),
+            String(
+                now.getMonth() + 1
+            ).padStart(2, "0"),
+            String(
+                now.getDate()
+            ).padStart(2, "0")
+        ].join("-");
+
+
+    openingDate.value =
+        today;
+
+
+    applicationEndDate.min =
+        today;
+
+
+    openingDate.addEventListener(
+        "change",
+        function () {
+
+            if (!openingDate.value) {
+                return;
+            }
+
+            applicationEndDate.min =
+                openingDate.value;
+
+        }
+    );
+
+
+    // =========================================================
+    // STATUS MESSAGE
+    // =========================================================
+
+    function showStatus(
+        message,
+        type = "info"
+    ) {
+
+        processingNote.style.display =
+            "block";
+
+
+        processingNote.textContent =
+            message;
+
+
+        processingNote.classList.remove(
+            "info",
+            "success",
+            "error"
+        );
+
+
+        processingNote.classList.add(
+            type
+        );
+
+    }
+
+
+    function hideStatus() {
+
+        processingNote.style.display =
+            "none";
+
+
+        processingNote.classList.remove(
+            "info",
+            "success",
+            "error"
+        );
+
+    }
+
+
+    // =========================================================
+    // RESPONSE HELPER
+    // =========================================================
+
+    async function readResponse(response) {
+
+        const contentType =
+            response.headers.get(
+                "content-type"
+            ) || "";
+
+
+        if (
+            contentType.includes(
+                "application/json"
+            )
+        ) {
+
+            return await response.json();
+
+        }
+
+
+        const text =
+            await response.text();
+
+
+        try {
+
+            return JSON.parse(text);
+
+        } catch {
+
+            return {
+
+                success: false,
+
+                message:
+                    text ||
+                    `Server returned HTTP ${response.status}.`
+
+            };
+
+        }
+
+    }
+
+
+    // =========================================================
+    // NORMALIZE STATUS
+    // =========================================================
+
+    function normalizeStatus(status) {
+
+        const value =
+            String(
+                status || "draft"
+            )
+            .trim()
+            .toLowerCase();
+
+
+        if (
+            value === "active" ||
+            value === "published"
+        ) {
+
+            return "published";
+
+        }
+
+
+        if (value === "closed") {
+
+            return "closed";
+
+        }
+
+
+        if (value === "processing") {
+
+            return "processing";
+
+        }
+
+
+        return "draft";
+
+    }
+
+
+    // =========================================================
+    // LOAD EXISTING VACANCY
+    // =========================================================
+
+    async function loadVacancyForEdit() {
+
+        if (!editing) {
+
+            return;
+
+        }
+
+
+        showStatus(
+            "Loading vacancy details...",
+            "info"
+        );
+
+
+        saveDraftBtn.disabled =
+            true;
+
+        publishBtn.disabled =
+            true;
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `/api/vacancies/${encodeURIComponent(editId)}`,
+                    {
+                        method: "GET",
+
+                        credentials:
+                            "same-origin",
+
+                        headers: {
+                            "Accept":
+                                "application/json"
+                        }
+                    }
+                );
+
+
+            const data =
+                await readResponse(
+                    response
+                );
+
+
+            if (
+                !response.ok ||
+                !data.success ||
+                !data.vacancy
+            ) {
+
+                throw new Error(
+                    data.message ||
+                    "Unable to load vacancy."
+                );
+
+            }
+
+
+            const vacancy =
+                data.vacancy;
+
+
+            // =================================================
+            // FILL FORM
+            // =================================================
+
+            jobTitle.value =
+                vacancy.job_title ||
+                "";
+
+
+            jobDescription.value =
+                vacancy.job_description ||
+                vacancy.description ||
+                "";
+
+
+            location.value =
+                vacancy.location ||
+                "";
+
+
+            salary.value =
+                vacancy.salary ||
+                "";
+
+
+            employmentType.value =
+                vacancy.employment_type ||
+                "Full-time";
+
+
+            workMode.value =
+                vacancy.work_mode ||
+                "On-site";
+
+
+            openingDate.value =
+                vacancy.opening_date ||
+                today;
+
+
+            applicationEndDate.value =
+                vacancy.application_end_date ||
+                vacancy.closing_date ||
+                "";
+
+
+            // =================================================
+            // DATE MINIMUM
+            // =================================================
+
+            if (openingDate.value) {
+
+                applicationEndDate.min =
+                    openingDate.value;
+
+            }
+
+
+            // =================================================
+            // EXISTING STATUS
+            // =================================================
+
+            existingStatus =
+                normalizeStatus(
+                    vacancy.status
+                );
+
+
+            // =================================================
+            // CHANGE PAGE TEXT
+            // =================================================
+
+            const pageTitle =
+                document.querySelector(
+                    ".page-header h1"
+                );
+
+
+            if (pageTitle) {
+
+                pageTitle.textContent =
+                    "Edit Vacancy";
+
+            }
+
+
+            const pageDescription =
+                document.querySelector(
+                    ".page-header p"
+                );
+
+
+            if (pageDescription) {
+
+                pageDescription.textContent =
+                    "Update the vacancy information and job requirements.";
+
+            }
+
+
+            publishBtn.textContent =
+                existingStatus === "published"
+                    ? "Update Vacancy"
+                    : "Publish Vacancy";
+
+
+            saveDraftBtn.textContent =
+                "Save as Draft";
+
+
+            hideStatus();
+
+
+            saveDraftBtn.disabled =
+                false;
+
+            publishBtn.disabled =
+                false;
+
+
+        } catch (error) {
+
+            console.error(
+                "LOAD EDIT VACANCY ERROR:",
+                error
+            );
+
+
+            showStatus(
+                error.message ||
+                "Unable to load vacancy details.",
+                "error"
+            );
+
+
+            saveDraftBtn.disabled =
+                false;
+
+            publishBtn.disabled =
+                false;
+
+        }
+
+    }
+
+
+    // =========================================================
+    // COLLECT FORM DATA
+    // =========================================================
+
+    function getVacancyData(status) {
+
+        return {
+
+            job_title:
+                jobTitle.value.trim(),
+
+            job_description:
+                jobDescription.value.trim(),
+
+            location:
+                location.value.trim(),
+
+            salary:
+                salary.value.trim(),
+
+            employment_type:
+                employmentType.value,
+
+            work_mode:
+                workMode.value,
+
+            opening_date:
+                openingDate.value || null,
+
+            application_end_date:
+                applicationEndDate.value || null,
+
+            status:
+                status
+
+        };
+
+    }
+
+
+    // =========================================================
+    // VALIDATE
+    // =========================================================
+
+    function validateForm() {
+
+        if (!jobTitle.value.trim()) {
+
+            showStatus(
+                "Please enter a job title.",
+                "error"
+            );
+
+
+            jobTitle.focus();
+
+
+            return false;
+
+        }
+
+
+        if (!jobDescription.value.trim()) {
+
+            showStatus(
+                "Please enter the job description.",
+                "error"
+            );
+
+
+            jobDescription.focus();
+
+
+            return false;
+
+        }
+
+
+        if (
+            applicationEndDate.value &&
+            openingDate.value &&
+            applicationEndDate.value <
+                openingDate.value
+        ) {
+
+            showStatus(
+                "Application end date cannot be before the opening date.",
+                "error"
+            );
+
+
+            applicationEndDate.focus();
+
+
+            return false;
+
+        }
+
+
+        return true;
+
+    }
+
+
+    // =========================================================
+    // SUCCESS STATE
+    // =========================================================
+
+    function showSuccessState(message) {
+
+        showStatus(
+            message,
+            "success"
+        );
+
+
+        saveDraftBtn.disabled =
+            true;
+
+
+        saveDraftBtn.style.display =
+            "none";
+
+
+        publishBtn.disabled =
+            false;
+
+
+        publishBtn.textContent =
+            "Done";
+
+
+        publishBtn.dataset.completed =
+            "true";
+
+
+        publishBtn.focus();
+
+    }
+
+
+    // =========================================================
+    // RESET BUTTONS AFTER ERROR
+    // =========================================================
+
+    function resetButtons() {
+
+        saveDraftBtn.disabled =
+            false;
+
+
+        saveDraftBtn.style.display =
+            "";
+
+
+        publishBtn.disabled =
+            false;
+
+
+        publishBtn.dataset.completed =
+            "false";
+
+
+        publishBtn.textContent =
+            editing &&
+            existingStatus === "published"
+
+                ? "Update Vacancy"
+
+                : "Publish Vacancy";
+
+    }
+
+
+    // =========================================================
+    // SAVE / UPDATE
+    // =========================================================
+
+    async function saveVacancy(
+        requestedStatus,
+        button
+    ) {
+
+        // -----------------------------------------------------
+        // DONE
+        // -----------------------------------------------------
+
+        if (
+            button === publishBtn &&
+            publishBtn.dataset.completed === "true"
+        ) {
+
+            window.location.href =
+                "/vacancies";
+
+
+            return;
+
+        }
+
+
+        // -----------------------------------------------------
+        // VALIDATE
+        // -----------------------------------------------------
+
+        if (!validateForm()) {
+
+            return;
+
+        }
+
+
+        const vacancyData =
+            getVacancyData(
+                requestedStatus
+            );
+
+
+        saveDraftBtn.disabled =
+            true;
+
+
+        publishBtn.disabled =
+            true;
+
+
+        button.textContent =
+            requestedStatus === "draft"
+
+                ? "Saving..."
+
+                : (
+                    editing
+                        ? "Updating..."
+                        : "Publishing..."
+                );
+
+
+        showStatus(
+
+            requestedStatus === "draft"
+
+                ? "Saving vacancy as draft..."
+
+                : (
+                    editing
+                        ? "Updating vacancy..."
+                        : "Publishing vacancy..."
+                ),
+
+            "info"
+
+        );
+
+
+        try {
+
+            // =================================================
+            // CREATE
+            // =================================================
+
+            if (!editing) {
+
+                const response =
+                    await fetch(
+                        "/api/vacancies",
+                        {
+                            method: "POST",
+
+                            credentials:
+                                "same-origin",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json",
+
+                                "Accept":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    vacancyData
+                                )
+
+                        }
+                    );
+
+
+                const data =
+                    await readResponse(
+                        response
+                    );
+
+
+                if (
+                    !response.ok ||
+                    !data.success
+                ) {
+
+                    throw new Error(
+                        data.message ||
+                        "Unable to save vacancy."
+                    );
+
+                }
+
+
+                if (
+                    requestedStatus === "draft"
+                ) {
+
+                    showSuccessState(
+                        "Draft saved successfully"
+                    );
+
+                } else {
+
+                    showSuccessState(
+                        "Published successfully"
+                    );
+
+                }
+
+
+                return;
+
+            }
+
+
+            // =================================================
+            // UPDATE EXISTING VACANCY
+            // =================================================
+
+            const response =
+                await fetch(
+                    `/api/vacancies/${encodeURIComponent(editId)}`,
+                    {
+                        method: "PUT",
+
+                        credentials:
+                            "same-origin",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json",
+
+                            "Accept":
+                                "application/json"
+
+                        },
+
+                        body:
+                            JSON.stringify(
+                                vacancyData
+                            )
+
+                    }
+                );
+
+
+            const data =
+                await readResponse(
+                    response
+                );
+
+
+            if (
+                !response.ok ||
+                !data.success
+            ) {
+
+                throw new Error(
+                    data.message ||
+                    "Unable to update vacancy."
+                );
+
+            }
+
+
+            // =================================================
+            // UPDATE STATUS
+            // =================================================
+
+            const statusResponse =
+                await fetch(
+                    `/api/vacancies/${encodeURIComponent(editId)}/status`,
+                    {
+                        method: "PATCH",
+
+                        credentials:
+                            "same-origin",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json",
+
+                            "Accept":
+                                "application/json"
+
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                status:
+                                    requestedStatus
+
+                            })
+
+                    }
+                );
+
+
+            const statusData =
+                await readResponse(
+                    statusResponse
+                );
+
+
+            if (
+                !statusResponse.ok ||
+                !statusData.success
+            ) {
+
+                throw new Error(
+                    statusData.message ||
+                    "Vacancy updated, but status could not be changed."
+                );
+
+            }
+
+
+            // =================================================
+            // SUCCESS
+            // =================================================
+
+            if (
+                requestedStatus === "draft"
+            ) {
+
+                showSuccessState(
+                    "Updated and saved as draft successfully"
+                );
+
+            } else {
+
+                showSuccessState(
+                    "Updated successfully"
+                );
+
+            }
+
+
+        } catch (error) {
+
+            console.error(
+                "SAVE / UPDATE VACANCY ERROR:",
+                error
+            );
+
+
+            showStatus(
+                error.message ||
+                "Unable to save vacancy. Please try again.",
+                "error"
+            );
+
+
+            resetButtons();
+
+        }
+
+    }
+
+
+    // =========================================================
+    // PUBLISH / UPDATE
+    // =========================================================
+
+    form.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            saveVacancy(
+                "published",
+                publishBtn
+            );
+
+        }
+    );
+
+
+    // =========================================================
+    // SAVE DRAFT
+    // =========================================================
+
+    saveDraftBtn.addEventListener(
+        "click",
+        function () {
+
+            saveVacancy(
+                "draft",
+                saveDraftBtn
+            );
+
+        }
+    );
+
+
+    // =========================================================
+    // INITIALIZE
+    // =========================================================
+
+    loadVacancyForEdit();
+
+});
+
+</script>
+
+
+<!-- SHARED SIDEBAR JS -->
+<script src="/js/sidebar.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1695 @@
+/* =========================================================
+   RESUMEMATCH AI
+   DASHBOARD STYLES
+   ========================================================= */
+
+
+/* =========================
+   ROOT VARIABLES
+   ========================= */
+
+:root {
+
+    --bg-main: #050816;
+    --bg-secondary: #081432;
+    --bg-tertiary: #0c1d45;
+
+    --sidebar-bg: rgba(5, 12, 31, 0.97);
+
+    --card-bg: rgba(10, 24, 55, 0.72);
+
+    --text-main: #f8fafc;
+    --text-secondary: #a9b8d0;
+    --text-muted: #71829e;
+
+    --blue: #2563eb;
+    --blue-light: #60a5fa;
+
+    --cyan: #22d3ee;
+    --cyan-dark: #0891b2;
+
+    --purple: #7c3aed;
+    --purple-light: #a78bfa;
+
+    --border:
+        rgba(96, 165, 250, 0.12);
+
+    --border-light:
+        rgba(96, 165, 250, 0.07);
+
+    --brand-gradient:
+        linear-gradient(
+            100deg,
+            #60a5fa 0%,
+            #22d3ee 45%,
+            #a78bfa 100%
+        );
+
+    --button-gradient:
+        linear-gradient(
+            100deg,
+            #2563eb 0%,
+            #0891b2 48%,
+            #7c3aed 100%
+        );
+
+    --sidebar-width: 258px;
+
+}
+
+
+/* =========================
+   RESET
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+
+    width: 100%;
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: var(--text-main);
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(37, 99, 235, 0.14),
+            transparent 27%
+        ),
+
+        radial-gradient(
+            circle at 88% 8%,
+            rgba(124, 58, 237, 0.10),
+            transparent 24%
+        ),
+
+        radial-gradient(
+            circle at 55% 100%,
+            rgba(8, 145, 178, 0.08),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--bg-main) 0%,
+            var(--bg-secondary) 50%,
+            var(--bg-tertiary) 100%
+        );
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================
+   MAIN APP
+   ========================= */
+
+.app-shell {
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: var(--sidebar-width);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px 18px 20px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(6, 16, 40, 0.99),
+            rgba(4, 11, 29, 0.98)
+        );
+
+    /*
+       IMPORTANT:
+       Strong vertical separation between sidebar
+       and dashboard.
+    */
+
+    border-right:
+        1px solid rgba(96, 165, 250, 0.18);
+
+    box-shadow:
+        8px 0 35px rgba(0, 0, 0, 0.20);
+
+    z-index: 100;
+
+}
+
+
+/* =========================
+   BRAND
+   ========================= */
+
+.brand {
+
+    padding:
+        0 12px 27px;
+
+    font-size: 22px;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: -0.6px;
+
+    white-space: nowrap;
+
+}
+
+
+/*
+   ResumeMatch
+   White, same as login.
+*/
+
+.brand-main {
+
+    color: #ffffff;
+
+}
+
+
+/*
+   AI
+   Blue -> Cyan -> Purple,
+   matching the login branding.
+*/
+
+.brand-ai {
+
+    margin-left: 4px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #60a5fa 0%,
+            #22d3ee 45%,
+            #a78bfa 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+/* =========================================================
+   GREETING CARD
+   ========================================================= */
+
+.greeting-card {
+
+    position: relative;
+
+    margin:
+        0 2px 25px;
+
+    padding:
+        17px 16px;
+
+    min-height: 105px;
+
+    border-radius: 15px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(16, 38, 78, 0.78),
+            rgba(8, 21, 48, 0.88)
+        );
+
+    border:
+        1px solid rgba(96, 165, 250, 0.15);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.20);
+
+    overflow: hidden;
+
+}
+
+
+.greeting-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 112px;
+    height: 112px;
+
+    right: -55px;
+    top: -55px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(34, 211, 238, 0.10);
+
+    filter: blur(22px);
+
+}
+
+
+.greeting-status {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 12px;
+
+    font-size: 12px;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: 1.1px;
+
+    color: #7dd3fc;
+
+}
+
+
+.status-dot {
+
+    width: 6px;
+    height: 6px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #22d3ee;
+
+    box-shadow:
+        0 0 9px rgba(34, 211, 238, 0.80);
+
+}
+
+
+.greeting-card h3 {
+
+    position: relative;
+
+    font-size: 20px;
+
+    line-height: 1.35;
+
+    font-weight: 650;
+
+    color: #ffffff;
+
+}
+
+
+.greeting-card p {
+
+    position: relative;
+
+    margin-top: 6px;
+
+    font-size: 12px;
+
+    line-height: 1.45;
+
+    color: #8091ad;
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.sidebar-nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+}
+
+
+.nav-item {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    min-height: 46px;
+
+    padding:
+        0 13px;
+
+    border-radius: 12px;
+
+    color: #8d9bb3;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition:
+        background 0.20s ease,
+        color 0.20s ease,
+        transform 0.20s ease;
+
+}
+
+
+.nav-item:hover {
+
+    color: #dbeafe;
+
+    background:
+        rgba(37, 99, 235, 0.08);
+
+}
+
+
+/* =========================
+   ACTIVE DASHBOARD
+   ========================= */
+
+.nav-item.active {
+
+    color: #ffffff;
+
+    background:
+
+        linear-gradient(
+            100deg,
+            rgba(37, 99, 235, 0.94),
+            rgba(8, 145, 178, 0.82)
+        );
+
+    box-shadow:
+        0 8px 24px rgba(37, 99, 235, 0.18);
+
+}
+
+
+/*
+   Small cyan active indicator
+*/
+
+.nav-item.active::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    width: 3px;
+    height: 21px;
+
+    border-radius:
+        0 4px 4px 0;
+
+    background: #67e8f9;
+
+}
+
+
+/* =========================
+   NAV ICONS
+   ========================= */
+
+.nav-icon {
+
+    width: 19px;
+    height: 19px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+}
+
+
+.nav-icon svg {
+
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+   ========================================================= */
+
+.sidebar-bottom {
+
+    margin-top: auto;
+
+    padding-top: 15px;
+
+    border-top:
+        1px solid rgba(96, 165, 250, 0.07);
+
+}
+
+
+.logout-item:hover {
+
+    color: #fca5a5;
+
+    background:
+        rgba(239, 68, 68, 0.06);
+
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+
+    width:
+        calc(100% - var(--sidebar-width));
+
+    min-height: 100vh;
+
+    margin-left:
+        var(--sidebar-width);
+
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.topbar {
+
+    min-height: 105px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding:
+        28px 42px 22px;
+
+    border-bottom:
+        1px solid rgba(96, 165, 250, 0.06);
+
+}
+
+
+/*
+   IMPORTANT:
+   There is intentionally NO right-side content here.
+   No bell.
+   No HR Manager.
+   No avatar.
+*/
+
+.page-heading h1 {
+
+    font-size: 29px;
+
+    line-height: 1.2;
+
+    font-weight: 650;
+
+    letter-spacing: -0.6px;
+
+    color: #ffffff;
+
+}
+
+
+.page-heading p {
+
+    margin-top: 6px;
+
+    font-size: 13px;
+
+    color: var(--text-secondary);
+
+}
+
+
+/* =========================================================
+   DASHBOARD CONTENT
+   ========================================================= */
+
+.dashboard-content {
+
+    padding:
+        30px 42px 45px;
+
+}
+
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 17px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.stat-card {
+
+    min-height: 128px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(11, 27, 59, 0.82),
+            rgba(7, 19, 44, 0.70)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.15);
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.stat-card:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(96, 165, 250, 0.20);
+
+}
+
+
+/* =========================================================
+   STAT ICONS
+   ========================================================= */
+
+.stat-icon {
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+}
+
+
+.stat-icon svg {
+
+    width: 22px;
+    height: 22px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+}
+
+
+.stat-icon.blue {
+
+    color: #60a5fa;
+
+    background:
+        rgba(37, 99, 235, 0.13);
+
+}
+
+
+.stat-icon.cyan {
+
+    color: #22d3ee;
+
+    background:
+        rgba(6, 182, 212, 0.12);
+
+}
+
+
+.stat-icon.purple {
+
+    color: #a78bfa;
+
+    background:
+        rgba(139, 92, 246, 0.12);
+
+}
+
+
+.stat-icon.gradient {
+
+    color: #67e8f9;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(37, 99, 235, 0.15),
+            rgba(124, 58, 237, 0.15)
+        );
+
+}
+
+
+/* =========================================================
+   STAT TEXT
+   ========================================================= */
+
+.stat-info {
+
+    min-width: 0;
+
+}
+
+
+.stat-label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 15px;
+
+    color: var(--text-muted);
+
+}
+
+
+.stat-info strong {
+
+    display: block;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    font-weight: 650;
+
+    color: #f8fafc;
+
+}
+
+
+/* =========================================================
+   LOWER CONTENT GRID
+   ========================================================= */
+
+.content-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.6fr)
+        minmax(300px, 0.9fr);
+
+    gap: 20px;
+
+}
+
+
+/* =========================================================
+   GENERAL CARD
+   ========================================================= */
+
+.dashboard-card {
+
+    min-width: 0;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(10, 25, 55, 0.82),
+            rgba(6, 17, 39, 0.74)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.20);
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.card-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding:
+        22px 23px 19px;
+
+    border-bottom:
+        1px solid rgba(96, 165, 250, 0.06);
+
+}
+
+
+.card-header h2 {
+
+    font-size: 18px;
+
+    line-height: 1.2;
+
+    font-weight: 620;
+
+    color: #f8fafc;
+
+}
+
+
+.card-header p {
+
+    margin-top: 5px;
+
+    font-size: 12px;
+
+    color: var(--text-muted);
+
+}
+
+
+.view-link {
+
+    color: #60a5fa;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+}
+
+
+.view-link:hover {
+
+    color: #67e8f9;
+
+}
+
+
+/* =========================================================
+   VACANCY LIST
+   ========================================================= */
+
+.vacancy-list {
+
+    padding:
+        4px 22px 12px;
+
+}
+
+
+.vacancy-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding:
+        17px 2px;
+
+    border-bottom:
+        1px solid rgba(96, 165, 250, 0.06);
+
+}
+
+
+.vacancy-row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.vacancy-info {
+
+    min-width: 0;
+
+}
+
+
+.vacancy-title {
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #e8eef8;
+
+}
+
+
+.vacancy-meta {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 5px;
+
+    font-size: 12px;
+
+    color: #71829e;
+
+}
+
+
+.dot-separator {
+
+    color: #43536d;
+
+}
+
+
+.vacancy-applications {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    flex-shrink: 0;
+
+}
+
+
+.vacancy-applications strong {
+
+    font-size: 14px;
+
+    color: #dbeafe;
+
+}
+
+
+.vacancy-applications span {
+
+    margin-top: 2px;
+
+    font-size: 9px;
+
+    color: #667892;
+
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding:
+        42px 25px 45px;
+
+}
+
+
+.empty-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 13px;
+
+    border-radius: 14px;
+
+    color: #60a5fa;
+
+    background:
+        rgba(37, 99, 235, 0.10);
+
+}
+
+
+.empty-icon svg {
+
+    width: 23px;
+    height: 23px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.6;
+
+}
+
+
+.empty-state h3 {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #f1f5f9;
+
+}
+
+
+.empty-state p {
+
+    max-width: 300px;
+
+    margin-top: 6px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    color: var(--text-muted);
+
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.primary-button {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 38px;
+
+    margin-top: 17px;
+
+    padding:
+        0 17px;
+
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    background:
+        var(--button-gradient);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.primary-button:hover {
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 12px 25px rgba(37, 99, 235, 0.25);
+
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+   ========================================================= */
+
+.quick-actions {
+
+    padding:
+        8px 15px 14px;
+
+}
+
+
+.quick-action {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding:
+        13px 8px;
+
+    border-bottom:
+        1px solid rgba(96, 165, 250, 0.06);
+
+    border-radius: 12px;
+
+    color: inherit;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease;
+
+}
+
+
+.quick-action:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.quick-action:hover {
+
+    background:
+        rgba(37, 99, 235, 0.06);
+
+}
+
+
+.quick-icon {
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+}
+
+
+.quick-icon svg {
+
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+}
+
+
+.quick-icon.blue {
+
+    color: #60a5fa;
+
+    background:
+        rgba(37, 99, 235, 0.12);
+
+}
+
+
+.quick-icon.cyan {
+
+    color: #22d3ee;
+
+    background:
+        rgba(6, 182, 212, 0.11);
+
+}
+
+
+.quick-icon.purple {
+
+    color: #a78bfa;
+
+    background:
+        rgba(139, 92, 246, 0.11);
+
+}
+
+
+.quick-text {
+
+    min-width: 0;
+
+    flex: 1;
+
+}
+
+
+.quick-text strong {
+
+    display: block;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: #e7edf7;
+
+}
+
+
+.quick-text span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 12px;
+
+    color: #71829e;
+
+}
+
+
+.arrow {
+
+    font-size: 17px;
+
+    color: #526680;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.quick-action:hover .arrow {
+
+    color: #60a5fa;
+
+    transform:
+        translateX(3px);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1150px) {
+
+    .stats-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+    .content-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    :root {
+
+        --sidebar-width: 220px;
+
+    }
+
+    .dashboard-content {
+
+        padding-left: 25px;
+        padding-right: 25px;
+
+    }
+
+    .topbar {
+
+        padding-left: 25px;
+        padding-right: 25px;
+
+    }
+
+}
+
+
+@media (max-width: 680px) {
+
+    .app-shell {
+
+        flex-direction: column;
+
+    }
+
+
+    .sidebar {
+
+        position: relative;
+
+        width: 100%;
+
+        min-height: auto;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid rgba(96, 165, 250, 0.16);
+
+    }
+
+
+    .main-content {
+
+        width: 100%;
+
+        margin-left: 0;
+
+    }
+
+
+    .sidebar-nav {
+
+        flex-direction: row;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .nav-item {
+
+        flex:
+            1 1 140px;
+
+    }
+
+
+    .sidebar-bottom {
+
+        margin-top: 15px;
+
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .brand {
+
+        padding-bottom: 20px;
+
+    }
+
+
+    .greeting-card {
+
+        margin-bottom: 18px;
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .dashboard-content {
+
+        padding:
+            20px 15px 30px;
+
+    }
+
+
+    .topbar {
+
+        padding:
+            22px 15px;
+
+    }
+
+
+    .page-heading h1 {
+
+        font-size: 23px;
+
+    }
+
+
+    .card-header {
+
+        padding-left: 17px;
+        padding-right: 17px;
+
+    }
+
+
+    .vacancy-list {
+
+        padding-left: 17px;
+        padding-right: 17px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+
+    width: 7px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        #050816;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(96, 165, 250, 0.20);
+
+    border-radius: 12px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        rgba(96, 165, 250, 0.35);
+
+}
+
+/* ============================================================
+   VACANCY PERFORMANCE CHART
+   ============================================================ */
+
+.vacancy-performance-content {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 20px 12px 16px;
+    margin: 0;
+}
+
+.performance-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    min-width: 0;
+    padding: 12px 4px;
+    box-sizing: border-box;
+}
+
+.performance-item {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.performance-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 14px;
+    box-sizing: border-box;
+}
+
+.performance-title {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    color: var(--text-primary, #e2e8f0);
+    font-size: 13px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.performance-label strong {
+    flex-shrink: 0;
+    padding-left: 8px;
+    color: var(--text-primary, #f1f5f9);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+}
+
+.performance-track {
+    width: 100%;
+    height: 10px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(148, 163, 184, 0.13);
+    box-sizing: border-box;
+}
+
+.performance-bar {
+    height: 100%;
+    max-width: 100%;
+    min-width: 0;
+    border-radius: inherit;
+    transition: width 0.35s ease;
+}
+
+.performance-bar.bar-1 {
+    background: linear-gradient(90deg, #2563eb, #38bdf8);
+}
+
+.performance-bar.bar-2 {
+    background: linear-gradient(90deg, #0891b2, #22d3ee);
+}
+
+.performance-bar.bar-3 {
+    background: linear-gradient(90deg, #7c3aed, #a78bfa);
+}
+
+.performance-bar.bar-4 {
+    background: linear-gradient(90deg, #059669, #34d399);
+}
+
+.performance-bar.bar-5 {
+    background: linear-gradient(90deg, #4f46e5, #818cf8);
+}
+
+.performance-footnote {
+    margin: 28px 0 0;
+    padding: 14px 4px 0;
+    color: var(--text-muted, #94a3b8);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.chart-empty {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 44px 20px;
+    color: var(--text-muted, #94a3b8);
+    font-size: 13px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.chart-empty p {
+    margin: 0 0 10px;
+    color: var(--text-primary, #e2e8f0);
+    font-weight: 600;
+}
+
+.chart-empty span {
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .vacancy-performance-content {
+        padding: 16px 6px 12px;
+    }
+
+    .performance-chart {
+        gap: 26px;
+        padding: 8px 2px;
+    }
+}

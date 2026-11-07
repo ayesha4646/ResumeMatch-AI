@@ -1,0 +1,443 @@
+/* ============================================================
+   RESUMEMATCH AI - CHATBOT PAGES
+   Visual style matches the Vacancies page
+============================================================ */
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #f8fafc;
+    background:
+        radial-gradient(circle at 75% 15%, rgba(37, 99, 235, 0.16), transparent 30%),
+        radial-gradient(circle at 20% 85%, rgba(124, 58, 237, 0.10), transparent 28%),
+        linear-gradient(135deg, #050816 0%, #081432 45%, #0c1d45 100%);
+    min-height: 100vh;
+}
+
+/* ============================================================
+   APP SHELL / MAIN CONTENT
+============================================================ */
+
+.app-shell {
+    min-height: 100vh;
+    display: flex;
+}
+
+.main-content {
+    margin-left: 258px;
+    width: calc(100% - 258px);
+    min-height: 100vh;
+    padding: 42px 48px 60px;
+    position: relative;
+    min-width: 0;
+}
+
+/* ============================================================
+   PAGE HEADER
+============================================================ */
+
+.question-page {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.question-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 34px;
+}
+
+.question-header > div:first-child {
+    flex: 1;
+    min-width: 0;
+}
+
+.question-header h1 {
+    font-size: 32px;
+    line-height: 1.15;
+    font-weight: 720;
+    letter-spacing: -1px;
+    color: #f8fafc;
+    margin-bottom: 8px;
+}
+
+.question-header .eyebrow {
+    color: #60a5fa;
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: 1.5px;
+    margin-bottom: 9px;
+}
+
+.question-header .subtitle {
+    font-size: 14px;
+    line-height: 1.65;
+    color: #b1c3e6;
+}
+
+/* Back navigation */
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 40px;
+    padding: 0 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(96, 165, 250, 0.17);
+    background: rgba(7, 18, 43, 0.65);
+    color: #c7dcf7;
+    font-size: 12px;
+    font-weight: 650;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #ffffff;
+    background: rgba(37, 99, 235, 0.13);
+    border-color: rgba(96, 165, 250, 0.36);
+}
+
+/* ============================================================
+   INFORMATION PANEL
+============================================================ */
+
+.question-info {
+    padding: 20px 22px;
+    margin-bottom: 22px;
+    border-radius: 14px;
+    background: linear-gradient(
+        145deg,
+        rgba(24, 39, 68, 0.96),
+        rgba(11, 25, 49, 0.97)
+    );
+    border: 1px solid rgba(125, 170, 225, 0.17);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.16);
+}
+
+.question-info strong {
+    display: block;
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.question-info p {
+    color: #b1c3e6;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.question-info .back-link {
+    margin-top: 16px;
+}
+
+/* ============================================================
+   VACANCY SELECTION CARDS
+============================================================ */
+
+.vacancy-choice {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 23px;
+    margin-bottom: 14px;
+    border-radius: 16px;
+    background: linear-gradient(
+        145deg,
+        rgba(24, 39, 68, 0.96),
+        rgba(11, 25, 49, 0.97)
+    );
+    border: 1px solid rgba(125, 170, 225, 0.17);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.16);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease,
+                transform 0.2s ease;
+}
+
+.vacancy-choice:hover {
+    border-color: rgba(125, 180, 240, 0.28);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.21);
+    transform: translateY(-1px);
+}
+
+.vacancy-choice > div {
+    min-width: 0;
+}
+
+.vacancy-choice h2 {
+    color: #ffffff;
+    font-size: 19px;
+    line-height: 1.35;
+    font-weight: 750;
+    letter-spacing: -0.3px;
+    margin-bottom: 9px;
+    overflow-wrap: anywhere;
+}
+
+.vacancy-choice p {
+    color: #a9bdd8;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.vacancy-choice .back-link {
+    flex-shrink: 0;
+    border-color: rgba(96, 165, 250, 0.24);
+    background: rgba(37, 99, 235, 0.12);
+}
+
+/* ============================================================
+   QUESTION EDITOR CARDS
+============================================================ */
+
+.question-card {
+    position: relative;
+    width: 100%;
+    padding: 22px 23px;
+    margin-bottom: 15px;
+    border-radius: 16px;
+    background: linear-gradient(
+        145deg,
+        rgba(24, 39, 68, 0.96),
+        rgba(11, 25, 49, 0.97)
+    );
+    border: 1px solid rgba(125, 170, 225, 0.17);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.16);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.question-card:focus-within {
+    border-color: rgba(96, 165, 250, 0.32);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.20);
+}
+
+.question-card label {
+    display: block;
+    margin-bottom: 13px;
+    color: #f8fafc;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+}
+
+/* Question input fields */
+
+.question-card textarea {
+    display: block;
+    width: 100%;
+    min-height: 78px;
+    padding: 14px 15px;
+    border: 1px solid rgba(96, 165, 250, 0.16);
+    border-radius: 11px;
+    outline: none;
+    resize: vertical;
+    background: rgba(7, 18, 43, 0.72);
+    color: #e5edf9;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.7;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.question-card textarea::placeholder {
+    color: #52688f;
+}
+
+.question-card textarea:focus {
+    border-color: rgba(34, 211, 238, 0.42);
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.06);
+}
+
+/* ============================================================
+   ACTION BUTTONS
+============================================================ */
+
+.question-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.question-actions button {
+    min-height: 44px;
+    padding: 0 20px;
+    border-radius: 11px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+    background: linear-gradient(100deg, #2563eb, #0891b2, #7c3aed);
+    box-shadow: 0 10px 28px rgba(37, 99, 235, 0.20);
+    border: 1px solid rgba(147, 197, 253, 0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+                opacity 0.2s ease;
+}
+
+.question-actions button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 34px rgba(37, 99, 235, 0.28);
+}
+
+.question-actions button:active {
+    transform: translateY(0);
+}
+
+.question-actions button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+}
+
+.question-actions .reset-button {
+    background: rgba(7, 18, 43, 0.72);
+    border: 1px solid rgba(96, 165, 250, 0.20);
+    box-shadow: none;
+    color: #c7d7ed;
+}
+
+.question-actions .reset-button:hover {
+    background: rgba(96, 165, 250, 0.08);
+    border-color: rgba(96, 165, 250, 0.36);
+    box-shadow: none;
+}
+
+/* ============================================================
+   SAVE / RESET MESSAGES
+============================================================ */
+
+#question-message {
+    min-height: 22px;
+    margin-top: 17px;
+    color: #a9bdd8;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+#question-message.success {
+    color: #86efac;
+}
+
+#question-message.error {
+    color: #fca5a5;
+}
+
+/* ============================================================
+   EMPTY STATE
+============================================================ */
+
+.question-page > .question-info:has(a.back-link) {
+    max-width: 100%;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+============================================================ */
+
+@media (max-width: 1100px) {
+    .main-content {
+        padding: 35px 30px 50px;
+    }
+}
+
+@media (max-width: 850px) {
+    .question-header {
+        gap: 18px;
+    }
+
+    .question-header h1 {
+        font-size: 29px;
+    }
+
+    .vacancy-choice {
+        padding: 20px;
+    }
+
+    .question-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 680px) {
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 28px 18px 42px;
+    }
+
+    .question-header {
+        flex-direction: column;
+        margin-bottom: 27px;
+    }
+
+    .question-header h1 {
+        font-size: 27px;
+    }
+
+    .vacancy-choice {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 17px;
+    }
+
+    .vacancy-choice .back-link {
+        white-space: normal;
+    }
+
+    .question-info,
+    .question-card {
+        padding: 18px;
+    }
+
+    .question-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .question-actions button {
+        width: 100%;
+    }
+}
+
+/* ============================================================
+   SCROLLBAR
+============================================================ */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050816;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(96, 165, 250, 0.20);
+    border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(96, 165, 250, 0.35);
+}

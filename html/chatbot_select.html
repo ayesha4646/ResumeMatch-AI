@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot | ResumeMatch AI</title>
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/chatbot.css">
+</head>
+<body>
+<div class="app-shell">
+    {% include '_sidebar.html' %}
+
+    <main class="main-content">
+        <section class="question-page">
+            <header class="question-header">
+                <div>
+                    <p class="eyebrow">RESUMEMATCH AI</p>
+                    <h1>Chatbot</h1>
+                    <p class="subtitle">
+                        Select a vacancy to customize its AI interview questions.
+                    </p>
+                </div>
+            </header>
+
+            {% if vacancies %}
+                {% for vacancy in vacancies %}
+                    <article class="question-card vacancy-choice">
+                        <div>
+                            <h2>{{ vacancy.job_title or 'Untitled Vacancy' }}</h2>
+                            <p>
+                                Status:
+                                {{ (vacancy.status or 'draft')|replace('_', ' ')|title }}
+                            </p>
+                        </div>
+
+                        <a
+                            class="back-link"
+                            href="/chatbot?vacancy_id={{ vacancy.id }}"
+                        >
+                            Configure Questions →
+                        </a>
+                    </article>
+                {% endfor %}
+            {% else %}
+                <div class="question-info">
+                    <strong>No vacancies found</strong>
+                    <p>
+                        Create a vacancy first, then return here to configure
+                        its interview questions.
+                    </p>
+                    <a class="back-link" href="/vacancies">Go to Vacancies</a>
+                </div>
+            {% endif %}
+        </section>
+    </main>
+</div>
+
+<script src="/js/sidebar.js"></script>
+</body>
+</html>

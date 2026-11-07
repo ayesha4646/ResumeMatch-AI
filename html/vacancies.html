@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Vacancies | ResumeMatch AI</title>
+
+    
+     <link rel="stylesheet" href="/css/sidebar.css">
+
+<link rel="stylesheet" href="/css/vacancies.css">
+
+</head>
+
+
+<body>
+
+<div class="app-shell">
+
+
+    <!-- =========================================================
+         SIDEBAR
+    ========================================================== -->
+
+     {% include '_sidebar.html' %}
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- HEADER -->
+<header class="page-header">
+
+    <div>
+
+        <h1>
+            Vacancies
+        </h1>
+
+        <p>
+            Create and manage your job openings.
+        </p>
+
+        <!-- PUBLIC APPLICATION LINK -->
+        <div class="public-share-box">
+
+            <div class="public-share-info">
+
+                <span class="public-share-label">
+                    Public Application Link
+                </span>
+
+            <span
+    class="public-share-url"
+    id="publicJobsUrl"
+>
+    {{ request.host_url.rstrip('/') }}{{ public_link }}
+</span>
+
+            </div>
+
+            <button
+                type="button"
+                class="copy-public-link-btn"
+                id="copyPublicJobsLinkBtn"
+            >
+                Copy Link
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <a
+        href="/create-vacancy"
+        class="create-vacancy-btn"
+    >
+
+        <span class="plus-icon">
+            +
+        </span>
+
+        Create Vacancy
+
+    </a>
+
+</header>
+
+        <!-- =====================================================
+             SEARCH / FILTER BAR
+        ====================================================== -->
+
+        <section class="vacancy-controls">
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search vacancies..."
+                    autocomplete="off"
+                    aria-label="Search vacancies"
+                >
+
+
+                <button
+                    type="button"
+                    class="search-icon"
+                    id="searchBtn"
+                    aria-label="Search vacancies"
+                    title="Search"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="6.5"
+                        ></circle>
+
+                        <line
+                            x1="16"
+                            y1="16"
+                            x2="21"
+                            y2="21"
+                        ></line>
+
+                    </svg>
+
+                </button>
+
+            </div>
+
+
+            <!-- STATUS FILTER -->
+
+            <div class="control-select">
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="active">
+                        Active
+                    </option>
+
+                    <option value="draft">
+                        Draft
+                    </option>
+
+                    <option value="closed">
+                        Closed
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- SORT -->
+
+            <div class="control-select">
+
+                <select id="sortSelect">
+
+                    <option value="newest">
+                        Newest first
+                    </option>
+
+                    <option value="oldest">
+                        Oldest first
+                    </option>
+
+                    <option value="applicants-high">
+                        Most applicants
+                    </option>
+
+                    <option value="applicants-low">
+                        Least applicants
+                    </option>
+
+                    <option value="title-az">
+                        Job title A–Z
+                    </option>
+
+                    <option value="title-za">
+                        Job title Z–A
+                    </option>
+
+                    <option value="ending-soon">
+                        Ending soon
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             VACANCIES COUNT
+        ====================================================== -->
+
+        <div class="results-header">
+
+            <span id="vacancyCount">
+                0 vacancies
+            </span>
+
+        </div>
+
+
+        <!-- =====================================================
+             VACANCIES LIST
+        ====================================================== -->
+
+        <section
+            class="vacancies-list"
+            id="vacanciesList"
+        >
+
+            <!-- Cards inserted by JavaScript -->
+
+        </section>
+
+
+        <!-- =====================================================
+             EMPTY STATE
+        ====================================================== -->
+
+        <section
+            class="empty-state"
+            id="emptyState"
+            style="display: none;"
+        >
+
+            <div class="empty-icon">
+                +
+            </div>
+
+            <h2>
+                No vacancies found
+            </h2>
+
+            <p>
+                Create your first job opening and start receiving candidates.
+            </p>
+
+            <a
+                href="/create-vacancy"
+                class="empty-create-btn"
+            >
+                + Create Vacancy
+            </a>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =============================================================
+     ACTION MENU OVERLAY
+============================================================== -->
+
+<div
+    class="menu-backdrop"
+    id="menuBackdrop"
+    style="display: none;"
+></div>
+
+
+<script src="/js/vacancies.js"></script>
+<script src="/js/sidebar.js"></script>
+
+</body>
+
+</html>

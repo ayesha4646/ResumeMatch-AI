@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | ResumeMatch AI</title>
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="ambient one"></div>
+    <div class="ambient two"></div>
+    <div class="ambient three"></div>
+
+    <div class="lines">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+    </div>
+
+    <div class="particle particle-one"></div>
+    <div class="particle particle-two"></div>
+    <div class="particle particle-three"></div>
+    <div class="particle particle-four"></div>
+    <div class="particle particle-five"></div>
+
+    <main class="content">
+
+        <section class="left-section">
+
+            <div class="brand">
+                ResumeMatch
+                <span class="brand-ai">AI</span>
+            </div>
+
+            <div class="product-label">
+                <span class="status-dot"></span>
+                AI RECRUITMENT WORKSPACE
+            </div>
+
+            <h2 class="main-heading">
+                Start finding the
+                <span class="gradient-text">
+                    right talent.
+                </span>
+            </h2>
+
+            <p class="description">
+                AI-powered resume screening and intelligent candidate
+                matching that helps recruitment teams discover relevant
+                talent with less manual effort.
+            </p>
+
+            <div class="match-card">
+
+                <div class="match-top">
+
+                    <span class="match-label">
+                        AI CANDIDATE MATCH
+                    </span>
+
+                    <div class="score">
+
+                        <div class="score-ring">
+
+                            <svg viewBox="0 0 100 100">
+
+                                <defs>
+                                    <linearGradient
+                                        id="scoreGradient"
+                                        x1="0%"
+                                        y1="0%"
+                                        x2="100%"
+                                        y2="100%"
+                                    >
+                                        <stop
+                                            offset="0%"
+                                            stop-color="#2563EB"
+                                        ></stop>
+
+                                        <stop
+                                            offset="50%"
+                                            stop-color="#06B6D4"
+                                        ></stop>
+
+                                        <stop
+                                            offset="100%"
+                                            stop-color="#8B5CF6"
+                                        ></stop>
+                                    </linearGradient>
+                                </defs>
+
+                                <circle
+                                    class="score-ring-bg"
+                                    cx="50"
+                                    cy="50"
+                                    r="42"
+                                ></circle>
+
+                                <circle
+                                    class="score-ring-progress"
+                                    cx="50"
+                                    cy="50"
+                                    r="42"
+                                ></circle>
+
+                            </svg>
+
+                            <div class="score-content">
+                                <span
+                                    class="score-value"
+                                    id="matchScore"
+                                >
+                                    0%
+                                </span>
+
+                                <small>MATCH</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="candidate-row">
+
+                    <div class="candidate-info">
+
+                        <h3>
+                            Senior Software Engineer
+                        </h3>
+
+                        <p>
+                            Candidate #0248
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="match-details">
+
+                    <div class="match-detail">
+                        <strong>96%</strong>
+                        Skills
+                    </div>
+
+                    <div class="match-detail">
+                        <strong>89%</strong>
+                        Experience
+                    </div>
+
+                    <div class="match-detail">
+                        <strong>94%</strong>
+                        Education
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="signup-card">
+
+            <div class="signup-header">
+
+                <h1>
+                    Create your account
+                </h1>
+
+            </div>
+
+
+            <form id="signupForm">
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="name"
+                    >
+                        Full Name
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            class="input"
+                            type="text"
+                            id="name"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="email"
+                    >
+                        Email
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            class="input"
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label
+                        class="form-label"
+                        for="password"
+                    >
+                        Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            class="input password-input"
+                            type="password"
+                            id="password"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="eye-button"
+                            id="togglePassword"
+                            aria-label="Show password"
+                        >
+
+                            <svg
+                                id="eyeIcon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path
+                                    d="M2 12s3.5-6 10-6
+                                    10 6 10 6
+                                    -3.5 6-10 6
+                                    S2 12 2 12Z"
+                                />
+
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="2.5"
+                                />
+
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            <div class="form-group">
+
+    <label
+        class="form-label"
+        for="confirmPassword"
+    >
+        Confirm Password
+    </label>
+
+    <div class="input-wrapper">
+
+        <input
+            class="input password-input"
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm your password"
+            autocomplete="new-password"
+            required
+        >
+
+        <button
+            type="button"
+            class="eye-button"
+            id="toggleConfirmPassword"
+            aria-label="Show password"
+        >
+
+            <svg
+                id="confirmEyeIcon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+
+                <path
+                    d="M2 12s3.5-6 10-6
+                    10 6 10 6
+                    -3.5 6-10 6
+                    S2 12 2 12Z"
+                />
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="2.5"
+                />
+
+            </svg>
+
+        </button>
+
+    </div>
+<div class="signup-message" id="signupMessage"></div>
+</div>
+
+                <button
+                    type="submit"
+                    class="signup-button"
+                >
+                    <span>
+                        Create Account
+                    </span>
+                </button>
+
+            </form>
+
+
+            <div class="login-link">
+
+                Already have an account?
+
+                <button
+                    type="button"
+                    id="backToLogin"
+                >
+                    Sign in
+                </button>
+
+            </div>
+
+
+            <div class="security-note">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <rect
+                        x="4"
+                        y="10"
+                        width="16"
+                        height="11"
+                        rx="2"
+                    ></rect>
+
+                    <path
+                        d="M8 10V7a4 4 0 0 1 8 0v3"
+                    ></path>
+
+                </svg>
+
+                Secure recruitment workspace
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="/js/signup.js"></script>
+
+</body>
+</html>

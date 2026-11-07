@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apply | ResumeMatch AI</title>
+
+    <link rel="stylesheet" href="/css/candidate_apply.css">
+</head>
+
+<body>
+
+    <div class="page-bg">
+
+        <div class="ambient-glow glow-one"></div>
+        <div class="ambient-glow glow-two"></div>
+        <div class="ambient-glow glow-three"></div>
+
+        <main class="apply-page">
+
+            <!-- BRAND -->
+            <div class="brand">
+                <span class="brand-main">ResumeMatch</span>
+                <span class="brand-ai">AI</span>
+            </div>
+
+            <!-- JOB HEADER -->
+            <section class="job-header">
+
+                <div class="job-header-left">
+
+                    <div class="eyebrow">
+                        JOB APPLICATION
+                    </div>
+
+                    <h1 id="jobTitle">
+                        Loading position...
+                    </h1>
+
+                    <p id="jobDescription">
+                        Complete the application below to apply for this position.
+                    </p>
+
+                    <div class="job-meta">
+
+                        <span class="meta-item" id="jobLocation">
+                            <span class="meta-icon">⌖</span>
+                            <span>Loading location</span>
+                        </span>
+
+                        <span class="meta-item" id="jobEmployment">
+                            <span class="meta-icon">◈</span>
+                            <span>Loading employment type</span>
+                        </span>
+
+                        <span class="meta-item" id="jobWorkMode">
+                            <span class="meta-icon">◉</span>
+                            <span>Loading work mode</span>
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="application-badge">
+                    <span class="badge-dot"></span>
+                    Apply Now
+                </div>
+
+            </section>
+
+            <!-- APPLICATION CARD -->
+            <section class="application-card" id="applicationCard">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Submit your application</h2>
+
+                        <p>
+                            Enter your details and upload your latest resume.
+                        </p>
+                    </div>
+
+                    <div class="step-indicator">
+                        <span class="step active">1</span>
+                        <span class="step-line"></span>
+                        <span class="step">2</span>
+                    </div>
+
+                </div>
+
+                <form id="applicationForm" enctype="multipart/form-data">
+
+                    <!-- NAME -->
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="full_name"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                    <!-- PHONE -->
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="03XX XXXXXXX"
+                            autocomplete="tel"
+                            required
+                        >
+
+                    </div>
+
+                    <!-- RESUME -->
+                    <div class="form-group">
+
+                        <label>
+                            Resume / CV
+                            <span>*</span>
+                        </label>
+
+                        <div
+                            class="upload-box"
+                            id="uploadBox"
+                        >
+
+                            <input
+                                type="file"
+                                id="resume"
+                                name="resume"
+                                accept=".pdf,application/pdf"
+                                hidden
+                                required
+                            >
+
+                            <div
+                                class="upload-empty"
+                                id="uploadEmpty"
+                            >
+
+                                <div class="upload-icon">
+                                    ↑
+                                </div>
+
+                                <div class="upload-title">
+                                    Upload your resume
+                                </div>
+
+                                <div class="upload-subtitle">
+                                    PDF only · Maximum 10 MB
+                                </div>
+
+                                <button
+                                    type="button"
+                                    class="browse-button"
+                                    id="browseButton"
+                                >
+                                    Choose PDF
+                                </button>
+
+                            </div>
+
+                            <div
+                                class="selected-file"
+                                id="selectedFile"
+                                hidden
+                            >
+
+                                <div class="file-icon">
+                                    PDF
+                                </div>
+
+                                <div class="file-info">
+
+                                    <strong id="fileName">
+                                        resume.pdf
+                                    </strong>
+
+                                    <span id="fileSize">
+                                        0 MB
+                                    </span>
+
+                                </div>
+
+                                <button
+                                    type="button"
+                                    class="remove-file"
+                                    id="removeFile"
+                                    aria-label="Remove file"
+                                >
+                                    ×
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ERROR -->
+                    <div
+                        class="form-error"
+                        id="formError"
+                        hidden
+                    ></div>
+
+                    <!-- SUBMIT -->
+                    <button
+                        type="submit"
+                        class="submit-button"
+                        id="submitButton"
+                    >
+                        <span id="submitButtonText">
+                            Submit Application
+                        </span>
+
+                        <span class="submit-arrow">
+                            →
+                        </span>
+                    </button>
+
+                    <p class="privacy-note">
+                        By submitting this application, you confirm that the
+                        information provided is accurate.
+                    </p>
+
+                </form>
+
+            </section>
+
+            <!-- SUCCESS -->
+            <section
+                class="success-card"
+                id="successCard"
+                hidden
+            >
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <div class="eyebrow">
+                    APPLICATION RECEIVED
+                </div>
+
+                <h2>
+                    Application Submitted
+                </h2>
+
+                <p>
+                    Thank you for applying for
+                    <strong id="successJobTitle">
+                        this position
+                    </strong>.
+                </p>
+
+                <p class="success-subtext">
+                    Your application has been received successfully.
+                </p>
+
+                <button
+                    type="button"
+                    class="interview-button"
+                    id="continueInterview"
+                >
+                    Continue to AI Interview
+                    <span>→</span>
+                </button>
+
+            </section>
+
+            <div class="footer">
+                Powered by <strong>ResumeMatch AI</strong>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="/js/candidate_apply.js"></script>
+
+</body>
+</html>

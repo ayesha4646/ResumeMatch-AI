@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+<title>ResumeMatch AI</title>
+<link
+    rel="icon"
+    type="image/gif"
+    href="/favicon.gif"
+>
+<link rel="stylesheet" href="/css/login.css">
+  
+
+</head>
+
+<body>
+
+  
+<div class="page">
+
+    <!-- Ambient background -->
+    <div class="ambient one"></div>
+    <div class="ambient two"></div>
+    <div class="ambient three"></div>
+
+    <!-- Flowing background lines -->
+    <div class="lines">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Background particles -->
+    <div class="particle particle-one"></div>
+    <div class="particle particle-two"></div>
+    <div class="particle particle-three"></div>
+    <div class="particle particle-four"></div>
+    <div class="particle particle-five"></div>
+
+    <main class="content">
+
+        <!-- =====================================================
+             LEFT SECTION
+        ====================================================== -->
+
+        <section class="left-section">
+
+            <div class="brand">
+                ResumeMatch
+                <span class="brand-ai">AI</span>
+            </div>
+
+            <div class="product-label">
+                <span class="status-dot"></span>
+                AI RECRUITMENT WORKSPACE
+            </div>
+
+            <h2 class="main-heading">
+                Find the right
+                <span class="gradient-text">
+                    talent, faster.
+                </span>
+            </h2>
+
+            <p class="description">
+                AI-powered resume screening and intelligent candidate
+                matching that helps recruitment teams discover relevant
+                talent with less manual effort.
+            </p>
+
+
+            <!-- =================================================
+                 AI MATCH CARD
+                 Original card spacing/padding preserved
+            ================================================== -->
+
+            <div class="match-card">
+<div class="match-top">
+
+    <span class="match-label">
+        AI CANDIDATE MATCH
+    </span>
+
+    <div class="score">
+
+        <div class="score-ring">
+
+            <svg viewBox="0 0 100 100">
+
+                <defs>
+
+                    <linearGradient
+                        id="scoreGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                    >
+                        <stop
+                            offset="0%"
+                            stop-color="#2563EB"
+                        ></stop>
+
+                        <stop
+                            offset="50%"
+                            stop-color="#06B6D4"
+                        ></stop>
+
+                        <stop
+                            offset="100%"
+                            stop-color="#8B5CF6"
+                        ></stop>
+
+                    </linearGradient>
+
+                </defs>
+
+                <circle
+                    class="score-ring-bg"
+                    cx="50"
+                    cy="50"
+                    r="42"
+                ></circle>
+
+                <circle
+                    class="score-ring-progress"
+                    cx="50"
+                    cy="50"
+                    r="42"
+                ></circle>
+
+            </svg>
+
+            <div class="score-content">
+
+                <span
+                    class="score-value"
+                    id="matchScore"
+                >
+                    0%
+                </span>
+
+                <small>MATCH</small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="candidate-row">
+
+                    <div class="candidate-info">
+
+                        <h3>
+                            Senior Software Engineer
+                        </h3>
+
+                        <p>
+                            Candidate #0248
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Match details -->
+
+                <div class="match-details">
+
+                    <div class="match-detail">
+
+                        <strong>
+                            96%
+                        </strong>
+
+                        Skills
+
+                    </div>
+
+
+                    <div class="match-detail">
+
+                        <strong>
+                            89%
+                        </strong>
+
+                        Experience
+
+                    </div>
+
+
+                    <div class="match-detail">
+
+                        <strong>
+                            94%
+                        </strong>
+
+                        Education
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             LOGIN CARD
+        ====================================================== -->
+
+               <section class="login-card">
+
+            <!-- =================================================
+                 VIEW 1: SIGN IN (your existing form, unchanged)
+            ================================================== -->
+
+            <div class="fp-view" id="view-login">
+
+                <div class="login-header">
+                    <h1>Welcome back</h1>
+                    <p>Sign in to continue to your recruitment workspace.</p>
+                </div>
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <div class="input-wrapper">
+                            <input
+                                class="input"
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <div class="input-wrapper">
+                            <input
+                                class="input password-input"
+                                type="password"
+                                id="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="eye-button"
+                                id="togglePassword"
+                                aria-label="Show password"
+                            >
+                                <svg
+                                    id="eyeIcon"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" />
+                                    <circle cx="12" cy="12" r="2.5" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="login-message" id="loginMessage"></div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember">
+                            <input type="checkbox" id="remember">
+                            Remember me
+                        </label>
+
+                        <button type="button" class="forgot" id="forgotPassword">
+                            Forgot password?
+                        </button>
+                    </div>
+
+                    <button type="submit" class="signin-button">
+                        <span>Sign In</span>
+                    </button>
+
+                </form>
+
+                <div class="create-account">
+                    Don't have an account?
+                    <button type="button" id="createAccount">Create account</button>
+                </div>
+
+                <div class="security-note">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <rect x="4" y="10" width="16" height="11" rx="2"></rect>
+                        <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                    </svg>
+                    Secure recruitment workspace
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 VIEW 2: ENTER EMAIL
+            ================================================== -->
+
+            <div class="fp-view" id="view-email" hidden>
+
+                <div class="login-header">
+                    <h1>Reset password</h1>
+                    <p>Enter the email for your account and we'll send you a 6-digit code.</p>
+                </div>
+
+                <form id="fpEmailForm" novalidate>
+
+                    <div class="form-group">
+                        <label class="form-label" for="fpEmail">Email</label>
+                        <div class="input-wrapper">
+                            <input
+                                class="input"
+                                type="email"
+                                id="fpEmail"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="login-message fp-message" id="fpEmailMessage" role="alert"></div>
+
+                    <button type="submit" class="signin-button" id="fpEmailButton">
+                        <span>Send code</span>
+                    </button>
+
+                </form>
+
+                <div class="create-account">
+                    <button type="button" class="fp-back" data-fp-back>← Back to sign in</button>
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 VIEW 3: ENTER THE 6-DIGIT CODE
+            ================================================== -->
+
+            <div class="fp-view" id="view-code" hidden>
+
+                <div class="login-header">
+                    <h1>Enter the code</h1>
+                    <p>
+                        We sent a 6-digit code to
+                        <span class="fp-sent-to" id="fpSentTo"></span>.
+                        It expires in 10 minutes. Check your spam folder if you don't see it.
+                    </p>
+                </div>
+
+                <form id="fpCodeForm" novalidate>
+
+                    <div class="otp-row" id="otpRow" role="group" aria-label="6-digit code">
+                        <input class="otp-input" type="text" inputmode="numeric" autocomplete="one-time-code" aria-label="Digit 1">
+                        <input class="otp-input" type="text" inputmode="numeric" autocomplete="off" aria-label="Digit 2">
+                        <input class="otp-input" type="text" inputmode="numeric" autocomplete="off" aria-label="Digit 3">
+                        <input class="otp-input" type="text" inputmode="numeric" autocomplete="off" aria-label="Digit 4">
+                        <input class="otp-input" type="text" inputmode="numeric" autocomplete="off" aria-label="Digit 5">
+                        <input class="otp-input" type="text" inputmode="numeric" autocomplete="off" aria-label="Digit 6">
+                    </div>
+
+                    <div class="login-message fp-message" id="fpCodeMessage" role="alert"></div>
+
+                    <button type="submit" class="signin-button" id="fpCodeButton">
+                        <span>Verify code</span>
+                    </button>
+
+                </form>
+
+                <div class="fp-secondary">
+                    <button type="button" class="fp-link" id="fpResend" disabled>Resend code</button>
+                    <span aria-hidden="true">·</span>
+                    <button type="button" class="fp-link" id="fpChangeEmail">Change email</button>
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 VIEW 4: NEW PASSWORD
+            ================================================== -->
+
+            <div class="fp-view" id="view-password" hidden>
+
+                <div class="login-header">
+                    <h1>New password</h1>
+                    <p>Choose a new password for your account. Use at least 8 characters.</p>
+                </div>
+
+                <form id="fpPasswordForm" novalidate>
+
+                    <div class="form-group">
+                        <label class="form-label" for="fpNewPassword">New password</label>
+                        <div class="input-wrapper">
+                            <input
+                                class="input password-input"
+                                type="password"
+                                id="fpNewPassword"
+                                placeholder="Enter a new password"
+                                autocomplete="new-password"
+                            >
+                            <button type="button" class="eye-button" data-toggle="fpNewPassword" aria-label="Show password">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" />
+                                    <circle cx="12" cy="12" r="2.5" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="fpConfirmPassword">Confirm password</label>
+                        <div class="input-wrapper">
+                            <input
+                                class="input password-input"
+                                type="password"
+                                id="fpConfirmPassword"
+                                placeholder="Re-enter the new password"
+                                autocomplete="new-password"
+                            >
+                            <button type="button" class="eye-button" data-toggle="fpConfirmPassword" aria-label="Show password">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" />
+                                    <circle cx="12" cy="12" r="2.5" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="login-message fp-message" id="fpPasswordMessage" role="alert"></div>
+
+                    <button type="submit" class="signin-button" id="fpPasswordButton">
+                        <span>Update password</span>
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- =================================================
+                 VIEW 5: DONE
+            ================================================== -->
+
+            <div class="fp-view" id="view-done" hidden>
+
+                <div class="fp-success-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12.5l4.5 4.5L19 7.5" />
+                    </svg>
+                </div>
+
+                <div class="login-header">
+                    <h1>Password updated</h1>
+                    <p>Your password has been changed. You can now sign in with your new password.</p>
+                </div>
+
+                <button type="button" class="signin-button" id="fpDoneButton">
+                    <span>Back to sign in</span>
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="/js/login.js"></script>
+
+</body>
+
+</html>

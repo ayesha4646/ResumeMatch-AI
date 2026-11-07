@@ -1,0 +1,202 @@
+   <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- Brand -->
+
+            <div class="brand">
+
+                <span class="brand-main">
+                    ResumeMatch
+                </span>
+
+                <span class="brand-ai">
+                    AI
+                </span>
+
+            </div>
+
+
+            <!-- Greeting Card -->
+
+         <div class="greeting-card">
+
+    <div class="greeting-status">
+        <span class="status-dot"></span>
+        <span>HR DASHBOARD</span>
+    </div>
+
+    <h3
+        id="greetingText"
+        data-user-name="{{ session.get('name') or session.get('user_name') or 'Ayesha' }}"
+    >
+        Good morning, Ayesha
+    </h3>
+
+    <p>
+        Manage your recruitment workspace.
+    </p>
+
+</div>
+
+
+            <!-- Navigation -->
+
+            <nav class="sidebar-nav">
+
+
+                <!-- Dashboard -->
+
+                <a
+                    href="/dashboard"
+                    class="nav-item "
+                >
+
+                    <span class="nav-icon">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <rect
+                                x="3"
+                                y="3"
+                                width="7"
+                                height="7"
+                                rx="1.5"
+                            ></rect>
+
+                            <rect
+                                x="14"
+                                y="3"
+                                width="7"
+                                height="7"
+                                rx="1.5"
+                            ></rect>
+
+                            <rect
+                                x="3"
+                                y="14"
+                                width="7"
+                                height="7"
+                                rx="1.5"
+                            ></rect>
+
+                            <rect
+                                x="14"
+                                y="14"
+                                width="7"
+                                height="7"
+                                rx="1.5"
+                            ></rect>
+
+                        </svg>
+
+                    </span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <!-- Vacancies -->
+
+                <a
+                    href="/vacancies"
+                    class="nav-item"
+                >
+
+                    <span class="nav-icon">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <rect
+                                x="3"
+                                y="6"
+                                width="18"
+                                height="15"
+                                rx="2"
+                            ></rect>
+
+                            <path
+                                d="M8 6V4.5A1.5 1.5 0 0 1 9.5 3h5A1.5 1.5 0 0 1 16 4.5V6"
+                            ></path>
+
+                        </svg>
+
+                    </span>
+
+                    <span>
+                        Vacancies
+                    </span>
+
+                </a>
+
+
+<!-- Chatbot -->
+<a href="/Chatbot" class="nav-item">
+    <span class="nav-icon">
+        <svg viewBox="0 0 24 24">
+            <rect x="4" y="7" width="16" height="13" rx="3"></rect>
+            <path d="M12 3v4"></path>
+            <circle cx="12" cy="2.5" r="1"></circle>
+            <circle cx="9" cy="13" r="1"></circle>
+            <circle cx="15" cy="13" r="1"></circle>
+            <path d="M8 17h8"></path>
+        </svg>
+    </span>
+    <span>Chatbot</span>
+</a>
+
+
+
+               
+
+
+                <!-- Settings -->
+
+
+            </nav>
+
+
+            <!-- Sidebar Bottom -->
+
+            <div class="sidebar-bottom">
+
+                <a
+                    href="/logout"
+                    class="nav-item logout-item"
+                >
+
+                    <span class="nav-icon">
+
+                        <svg viewBox="0 0 24 24">
+
+                            <path
+                                d="M10 17l5-5-5-5"
+                            ></path>
+
+                            <path
+                                d="M15 12H3"
+                            ></path>
+
+                            <path
+                                d="M20 4v16"
+                            ></path>
+
+                        </svg>
+
+                    </span>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </a>
+
+            </div>
+
+        </aside>

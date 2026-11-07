@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chatbot | ResumeMatch AI</title>
+
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/chatbot.css">
+</head>
+<body>
+<div class="app-shell">
+
+    {% include '_sidebar.html' %}
+
+    <main class="main-content">
+        <section class="question-page">
+
+            <header class="question-header">
+                <div>
+                    <p class="eyebrow">RESUMEMATCH AI</p>
+                    <h1>Chatbot</h1>
+                    <p class="subtitle">
+                        Customize the AI interview questions for
+                        {{ job_title }}.
+                    </p>
+                </div>
+
+                <a class="back-link" href="/chatbot">
+                    ← Back to Vacancies
+                </a>
+            </header>
+
+            <div class="question-info">
+                <strong>Interview Question Settings</strong>
+                <p>
+                    Edit the five standard questions for this vacancy.
+                    Save your changes to use them in new candidate interviews.
+                    Reset restores the original default questions.
+                </p>
+            </div>
+
+            <form
+                id="interview-questions-form"
+                data-vacancy-id="{{ vacancy_id }}"
+            >
+                <div class="question-card">
+                    <label for="question-1">Question 1 — Strengths</label>
+                    <textarea
+                        id="question-1"
+                        maxlength="500"
+                        required
+                    >What is your biggest strength?</textarea>
+                </div>
+
+                <div class="question-card">
+                    <label for="question-2">Question 2 — Weakness</label>
+                    <textarea
+                        id="question-2"
+                        maxlength="500"
+                        required
+                    >What is one weakness you are improving?</textarea>
+                </div>
+
+                <div class="question-card">
+                    <label for="question-3">Question 3 — Project</label>
+                    <textarea
+                        id="question-3"
+                        maxlength="500"
+                        required
+                    >What project are you most proud of?</textarea>
+                </div>
+
+                <div class="question-card">
+                    <label for="question-4">Question 4 — Challenges</label>
+                    <textarea
+                        id="question-4"
+                        maxlength="500"
+                        required
+                    >How do you handle difficult situations?</textarea>
+                </div>
+
+                <div class="question-card">
+                    <label for="question-5">Question 5 — Motivation</label>
+                    <textarea
+                        id="question-5"
+                        maxlength="500"
+                        required
+                    >What motivates you to do your best?</textarea>
+                </div>
+
+                <div class="question-actions">
+                    <button type="submit" id="save-questions">
+                        Save Questions
+                    </button>
+
+                   <button
+    type="button"
+    id="reset-questions"
+>
+    Restore Default
+</button>
+                </div>
+
+                <p
+                    id="question-message"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+            </form>
+
+        </section>
+    </main>
+</div>
+
+<script src="/js/sidebar.js"></script>
+<script
+    src="/js/chatbot.js"
+    data-vacancy-id="{{ vacancy_id }}"
+></script>
+
+</body>
+</html>

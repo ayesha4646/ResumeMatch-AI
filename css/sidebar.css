@@ -1,0 +1,384 @@
+
+/* =========================================================
+   RESUMEMATCH AI
+   SHARED SIDEBAR STYLES
+   ========================================================= */
+
+
+/* =========================
+   ROOT VARIABLE
+   ========================= */
+
+:root {
+    --sidebar-width: 258px;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px 18px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(6, 16, 40, 0.99),
+            rgba(4, 11, 29, 0.98)
+        );
+
+    border-right:
+        1px solid rgba(96, 165, 250, 0.18);
+
+    box-shadow:
+        8px 0 35px rgba(0, 0, 0, 0.20);
+
+    z-index: 100;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+    padding:
+        0 12px 27px;
+
+    font-size: 22px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+
+    white-space: nowrap;
+}
+
+
+.brand-main {
+    color: #ffffff;
+}
+
+
+.brand-ai {
+    margin-left: 4px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #60a5fa 0%,
+            #22d3ee 45%,
+            #a78bfa 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================================
+   GREETING CARD
+   ========================================================= */
+
+.greeting-card {
+    position: relative;
+
+    margin:
+        0 2px 25px;
+
+    padding:
+        17px 16px;
+
+    min-height: 105px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 38, 78, 0.78),
+            rgba(8, 21, 48, 0.88)
+        );
+
+    border:
+        1px solid rgba(96, 165, 250, 0.15);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.20);
+
+    overflow: hidden;
+}
+
+
+.greeting-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 112px;
+    height: 112px;
+
+    right: -55px;
+    top: -55px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(34, 211, 238, 0.10);
+
+    filter: blur(22px);
+}
+
+
+.greeting-status {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 12px;
+
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 700;
+
+    letter-spacing: 1.1px;
+
+    color: #7dd3fc;
+}
+
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #22d3ee;
+
+    box-shadow:
+        0 0 9px rgba(34, 211, 238, 0.80);
+}
+
+
+.greeting-card h3 {
+    position: relative;
+
+    font-size: 20px;
+    line-height: 1.35;
+    font-weight: 650;
+
+    color: #ffffff;
+}
+
+
+.greeting-card p {
+    position: relative;
+
+    margin-top: 6px;
+
+    font-size: 12px;
+    line-height: 1.45;
+
+    color: #8091ad;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+
+.nav-item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+    min-height: 46px;
+
+    padding:
+        0 13px;
+
+    border-radius: 12px;
+
+    color: #8d9bb3;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition:
+        background 0.20s ease,
+        color 0.20s ease,
+        transform 0.20s ease;
+}
+
+
+.nav-item:hover {
+    color: #dbeafe;
+
+    background:
+        rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+   ========================================================= */
+
+.nav-item.active {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(37, 99, 235, 0.94),
+            rgba(8, 145, 178, 0.82)
+        );
+
+    box-shadow:
+        0 8px 24px rgba(37, 99, 235, 0.18);
+}
+
+
+.nav-item.active::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    width: 3px;
+    height: 21px;
+
+    border-radius:
+        0 4px 4px 0;
+
+    background: #67e8f9;
+}
+
+
+/* =========================================================
+   NAVIGATION ICONS
+   ========================================================= */
+
+.nav-icon {
+    width: 19px;
+    height: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+.nav-icon svg {
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+   ========================================================= */
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    padding-top: 15px;
+
+    border-top:
+        1px solid rgba(96, 165, 250, 0.07);
+}
+
+
+.logout-item:hover {
+    color: #fca5a5;
+
+    background:
+        rgba(239, 68, 68, 0.06);
+}
+
+
+/* =========================================================
+   RESPONSIVE SIDEBAR
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    :root {
+        --sidebar-width: 220px;
+    }
+
+}
+
+
+@media (max-width: 680px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+        min-height: auto;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid rgba(96, 165, 250, 0.16);
+    }
+
+
+    .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+
+    .nav-item {
+        flex:
+            1 1 140px;
+    }
+
+
+    .sidebar-bottom {
+        margin-top: 15px;
+    }
+
+}
+

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicants | ResumeMatch AI</title>
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/applicants.css">
+</head>
+<body>
+<div class="app-shell">
+    {% include '_sidebar.html' %}
+
+    <main class="main-content">
+        <header class="page-header">
+            <div>
+                <h1>Applicants</h1>
+                <p class="page-subtitle">{{ job_title }}</p>
+                <p class="page-note">
+                    Candidate scores and rankings for this vacancy.
+                </p>
+            </div>
+            <a class="back-button" href="/vacancies">← Back to Vacancies</a>
+        </header>
+
+        <section class="results-summary">
+            <div>
+                <span class="summary-label">Total Applicants</span>
+                <strong id="total-applicants-count">{{ applicants|length }}</strong>
+            </div>
+
+            <div>
+                <span class="summary-label">Completed Matches</span>
+                <strong id="completed-matches-count">
+                    {{ (applicants|selectattr('matching_status', 'equalto', 'completed')|list|length)
+                       + (applicants|selectattr('matching_status', 'equalto', 'preliminary_completed')|list|length) }}
+                </strong>
+            </div>
+
+            <div>
+                <span class="summary-label">Completed Interviews</span>
+                <strong id="completed-interviews-count">
+                    {{ applicants|selectattr('interview_score', 'ne', none)|list|length }}
+                </strong>
+            </div>
+        </section>
+
+        <section class="results-card" id="results-card" {% if not applicants %}hidden{% endif %}>
+            <div class="results-toolbar">
+                <span class="toolbar-title">Candidates</span>
+                <div class="toolbar-right">
+                    <button type="button" class="toolbar-button" id="open-template-button">
+                        Email Template
+                    </button>
+                    <span class="live-status" id="live-status" data-state="ok">
+                        <span class="live-dot"></span>
+                        <span id="live-status-text">Live</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="list-head" aria-hidden="true">
+                <span>Rank</span>
+                <span>Candidate</span>
+                <span>Final Score /100</span>
+                <span>Grade</span>
+                <span>Eligibility</span>
+                <span>Matching Status</span>
+                <span></span>
+            </div>
+
+            <div class="applicant-list" id="applicants-list"></div>
+
+            <p class="table-note">
+                Select a candidate to see all scores, the match explanation,
+                interview answers and the original CV. CV, skills, and experience
+                results can appear before the interview. Final scores and
+                vacancy-specific rankings update after the required assessments
+                are completed.
+            </p>
+        </section>
+
+        <section class="empty-results" id="empty-results" {% if applicants %}hidden{% endif %}>
+            <h2>No applicants yet</h2>
+            <p>Applicants will appear here after candidates apply to this vacancy.</p>
+            <a href="/vacancies">Return to Vacancies</a>
+        </section>
+    </main>
+</div>
+
+<!-- =========================================================
+     Selection email dialogs (outside the cards on purpose, so
+     the 5-second refresh never rebuilds them)
+     ========================================================= -->
+
+<dialog class="se-dialog" id="tpl-dialog" aria-labelledby="tpl-title">
+    <div class="se-head">
+        <h2 id="tpl-title">Selection Email Template</h2>
+        <p>
+            Write the message once. The candidate's name and the job title are
+            filled in automatically for each candidate.
+        </p>
+    </div>
+
+    <div class="se-body">
+        <label class="se-field">
+            <span class="se-label">Subject</span>
+            <input type="text" id="tpl-subject" maxlength="200" autocomplete="off">
+        </label>
+
+        <label class="se-field">
+            <span class="se-label">Message</span>
+            <textarea id="tpl-body" rows="11" maxlength="5000"></textarea>
+        </label>
+
+        <div class="se-chips">
+            <span class="se-hint">Click to insert:</span>
+            <button type="button" class="se-chip" data-placeholder="candidate_name">{{ '{{candidate_name}}' }}</button>
+            <button type="button" class="se-chip" data-placeholder="job_title">{{ '{{job_title}}' }}</button>
+        </div>
+
+        <p class="se-error" id="tpl-error" role="alert" hidden></p>
+    </div>
+
+    <div class="se-foot">
+        <button type="button" class="se-btn se-btn-ghost" id="tpl-cancel">Cancel</button>
+        <button type="button" class="se-btn se-btn-primary" id="tpl-save">Save template</button>
+    </div>
+</dialog>
+
+<dialog class="se-dialog" id="edit-dialog" aria-labelledby="edit-title">
+    <div class="se-head">
+        <h2 id="edit-title">Edit &amp; Send</h2>
+        <p>Changes made here apply to this email only. Your saved template is not changed.</p>
+    </div>
+
+    <div class="se-body">
+        <div class="se-recipient">
+            <div>
+                <span class="se-label">To</span>
+                <span class="se-static" id="edit-to">—</span>
+            </div>
+            <div>
+                <span class="se-label">Vacancy</span>
+                <span class="se-static" id="edit-vacancy">—</span>
+            </div>
+        </div>
+
+        <p class="se-notice" id="edit-notice" hidden></p>
+
+        <label class="se-field">
+            <span class="se-label">Subject</span>
+            <input type="text" id="edit-subject" maxlength="200" autocomplete="off" disabled>
+        </label>
+
+        <label class="se-field">
+            <span class="se-label">Message</span>
+            <textarea id="edit-body" rows="11" maxlength="5000" disabled></textarea>
+        </label>
+
+        <p class="se-error" id="edit-error" role="alert" hidden></p>
+    </div>
+
+    <div class="se-foot">
+        <button type="button" class="se-btn se-btn-ghost" id="edit-cancel">Cancel</button>
+        <button type="button" class="se-btn se-btn-primary" id="edit-send" disabled>Send</button>
+    </div>
+</dialog>
+
+<dialog class="se-dialog se-dialog-small" id="confirm-dialog" aria-labelledby="confirm-title">
+    <div class="se-head">
+        <h2 id="confirm-title">Please confirm</h2>
+        <p id="confirm-message"></p>
+    </div>
+    <div class="se-foot">
+        <button type="button" class="se-btn se-btn-ghost" id="confirm-cancel">Cancel</button>
+        <button type="button" class="se-btn se-btn-primary" id="confirm-ok">Confirm</button>
+    </div>
+</dialog>
+
+<div class="se-toast" id="se-toast" role="status" aria-live="polite" hidden></div>
+
+<script id="applicants-data" type="application/json">{{ {"applicants": applicants, "requirements": requirements}|tojson }}</script>
+<script src="/js/sidebar.js"></script>
+<script src="/js/selection_email.js"></script>
+<script src="/js/applicants.js" data-vacancy-id="{{ vacancy_id }}"></script>
+</body>
+</html>

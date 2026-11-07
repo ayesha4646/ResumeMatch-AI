@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Open Positions | ResumeMatch AI</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/candidate_vacancy.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="app-shell">
+
+        <main class="main-content">
+
+            <!-- =================================================
+                 BRAND
+            ================================================== -->
+
+        <div class="brand">
+    <span class="brand-main">ResumeMatch</span>
+    <span class="brand-ai">AI</span>
+</div>
+
+            <!-- =================================================
+                 PAGE HEADER
+            ================================================== -->
+
+            <header class="page-header">
+
+                <div>
+
+                    <h1>
+                        Open Positions
+                    </h1>
+
+                    <p>
+                        Explore available opportunities and find the right role for you.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 FILTER
+            ================================================== -->
+
+            <section class="vacancy-controls">
+
+                <div class="control-select">
+
+                    <select id="sortSelect">
+
+                        <option value="newest">
+                            Newest first
+                        </option>
+
+                        <option value="oldest">
+                            Oldest first
+                        </option>
+
+                        <option value="ending-soon">
+                            Ending soon
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 COUNT
+            ================================================== -->
+
+            <div class="results-header">
+
+                <span id="vacancyCount">
+                    0 vacancies
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 VACANCIES
+            ================================================== -->
+
+            <section
+                class="vacancies-list"
+                id="vacanciesList"
+            >
+
+            </section>
+
+
+            <!-- =================================================
+                 EMPTY STATE
+            ================================================== -->
+
+            <section
+                class="empty-state"
+                id="emptyState"
+                style="display: none;"
+            >
+
+                <div class="empty-icon">
+                    +
+                </div>
+
+                <h2>
+                    No open positions
+                </h2>
+
+                <p>
+                    There are currently no published vacancies available.
+                </p>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="/js/candidate_vacancy.js"></script>
+
+</body>
+
+</html>
+
